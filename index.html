@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self'; script-src 'self'"
+		/>
+		<link href="./styles.css" rel="stylesheet" />
+		<title>Hello World!</title>
+	</head>
+	<body>
+		<h1>IP-Address Calculator</h1>
+		<section class="section">
+			<form>
+				<h2>IP Address</h2>
+				<div>
+					<input type="number" name="ip1" id="ip" max="255" min="0" />
+					<span>.</span>
+					<input type="number" name="ip2" id="ip" max="255" min="0" />
+					<span>.</span>
+					<input type="number" name="ip3" id="ip" max="255" min="0" />
+					<span>.</span>
+					<input type="number" name="ip4" id="ip" max="255" min="0" />
+				</div>
+				<h2>Prefix Length</h2>
+				<input type="number" name="prefix" id="prefix" max="31" min="0" />
+				<br />
+				<button type="submit">Check!</button>
+			</form>
+		</section>
+		<!-- You can also require other files to run in this process -->
+		<script src="./renderer.js"></script>
+	</body>
 </html>
