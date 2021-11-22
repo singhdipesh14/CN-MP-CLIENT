@@ -7,18 +7,16 @@
 
 const form = document.getElementById("form")
 
-let response
+let response = {}
 
-const url = "https://randomuser.me/api/"
+const url = "http://localhost:3000/api/v1/ipv4"
 const details = document.getElementById("det")
 
 const sendRequest = async (data) => {
 	try {
 		document.querySelector(".loading").classList.remove("display-none")
 		document.querySelector(".info").classList.add("display-none")
-		console.log(data)
-		response = (await axios.get(url)).data
-		console.log(response)
+		response = (await axios.post(url, data)).data
 	} catch (error) {
 		console.log(error)
 	}
@@ -27,6 +25,17 @@ const sendRequest = async (data) => {
 const updateDetails = () => {
 	document.querySelector(".info").classList.remove("display-none")
 	document.querySelector(".loading").classList.add("display-none")
+	document.getElementById("IP").textContent = response.info.ip
+	document.getElementById("Network-Address").textContent =
+		response.info.netAddress
+	document.getElementById("Usable-Range").textContent =
+		response.info.usableAddressRange
+	document.getElementById("Broadcast-Address").textContent =
+		response.info.broadcastAddress
+	document.getElementById("Total-Hosts").textContent = response.info.maxHosts
+	document.getElementById("Subnet-Mask").textContent = response.info.subnetmask
+	document.getElementById("Wildcard").textContent = response.info.wildCardMask
+	document.getElementById("IP-Class").textContent = response.info.ipClass
 }
 
 const onSubmit = () => {
@@ -45,4 +54,4 @@ form.addEventListener("submit", function (e) {
 	onSubmit()
 })
 
-sendRequest("hello").then(updateDetails)
+sendRequest({ ip: "192.192.192.192", prefix: 8 }).then(updateDetails)
