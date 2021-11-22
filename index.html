@@ -5,32 +5,145 @@
 		<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
 		<meta
 			http-equiv="Content-Security-Policy"
-			content="default-src 'self'; script-src 'self'"
+			content="default-src gap://ready file://* *; style-src 'self' http://* https://*; script-src 'self' http://* https://*"
 		/>
+		<link href="./photon.min.css" rel="stylesheet" />
 		<link href="./styles.css" rel="stylesheet" />
-		<title>Hello World!</title>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<title>IP-Address Calculator</title>
 	</head>
 	<body>
-		<h1>IP-Address Calculator</h1>
-		<section class="section">
-			<form>
-				<h2>IP Address</h2>
-				<div>
-					<input type="number" name="ip1" id="ip" max="255" min="0" />
-					<span>.</span>
-					<input type="number" name="ip2" id="ip" max="255" min="0" />
-					<span>.</span>
-					<input type="number" name="ip3" id="ip" max="255" min="0" />
-					<span>.</span>
-					<input type="number" name="ip4" id="ip" max="255" min="0" />
+		<div class="window">
+			<div class="toolbar toolbar-header">
+				<h1 class="title">IP-Address Calculator</h1>
+			</div>
+			<div class="window-content">
+				<div class="pane-group">
+					<div class="pane">
+						<div class="padded-more">
+							<section class="section">
+								<form id="form">
+									<div class="form-group">
+										<label>IP Address</label>
+										<br />
+										<input
+											type="number"
+											name="ip1"
+											id="ip1"
+											max="255"
+											min="0"
+											placeholder="192"
+										/>
+										<span>.</span>
+										<input
+											type="number"
+											name="ip2"
+											id="ip2"
+											max="255"
+											min="0"
+											placeholder="192"
+										/>
+										<span>.</span>
+										<input
+											type="number"
+											name="ip3"
+											id="ip3"
+											max="255"
+											min="0"
+											placeholder="192"
+										/>
+										<span>.</span>
+										<input
+											type="number"
+											name="ip4"
+											id="ip4"
+											max="255"
+											min="0"
+											placeholder="192"
+										/>
+									</div>
+									<div class="form-group">
+										<label>Prefix Length</label>
+										<br />
+										<input
+											type="number"
+											name="prefix"
+											id="prefix"
+											max="31"
+											min="0"
+											placeholder="8"
+										/>
+										<br />
+									</div>
+									<button type="submit" class="btn btn-primary">CHECK</button>
+								</form>
+							</section>
+						</div>
+					</div>
+					<div class="pane">
+						<div class="padded-more">
+							<div class="loading">
+								<div class="spinner"></div>
+							</div>
+							<div class="info">
+								<table class="table-striped">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Value</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>IP Address</td>
+											<td>192.192.192.192</td>
+										</tr>
+										<tr>
+											<td>Network Address</td>
+											<td>192.192.192.0</td>
+										</tr>
+										<tr>
+											<td>Usable Range</td>
+											<td>192.192.192.192 - 192.192.192.255</td>
+										</tr>
+										<tr>
+											<td>Broadcast Address</td>
+											<td>192.192.192.255</td>
+										</tr>
+										<tr>
+											<td>Total Number of Hosts</td>
+											<td>64</td>
+										</tr>
+										<tr>
+											<td>Subnet Mask</td>
+											<td>255.255.255.0</td>
+										</tr>
+										<tr>
+											<td>Wildcard Mask</td>
+											<td>0.0.0.255</td>
+										</tr>
+										<tr>
+											<td>IP Class</td>
+											<td>B</td>
+										</tr>
+										<tr>
+											<td>IP Type</td>
+											<td>Public</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
-				<h2>Prefix Length</h2>
-				<input type="number" name="prefix" id="prefix" max="31" min="0" />
-				<br />
-				<button type="submit">Check!</button>
-			</form>
-		</section>
-		<!-- You can also require other files to run in this process -->
+				<!-- You can also require other files to run in this process -->
+			</div>
+			<div class="toolbar toolbar-footer">
+				<h1 class="title">
+					CN-LAB Mini Project | Dipesh Singh | Hemangi Jain | 2021
+				</h1>
+			</div>
+		</div>
 		<script src="./renderer.js"></script>
 	</body>
 </html>
