@@ -9,7 +9,7 @@ const form = document.getElementById("form")
 
 let response = {}
 
-const url = "http://localhost:3000/api/v1/ipv4"
+const url = "https://serene-hollows-33470.herokuapp.com/api/v1/ipv4"
 const details = document.getElementById("det")
 
 const sendRequest = async (data) => {
