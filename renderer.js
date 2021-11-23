@@ -32,10 +32,19 @@ const updateDetails = () => {
 		response.info.usableAddressRange
 	document.getElementById("Broadcast-Address").textContent =
 		response.info.broadcastAddress
-	document.getElementById("Total-Hosts").textContent = response.info.maxHosts
+	document.getElementById("Total-Hosts").textContent = response.info.totalHosts
+	document.getElementById("Usable-Hosts").textContent =
+		response.info.numberOfUsableHosts
 	document.getElementById("Subnet-Mask").textContent = response.info.subnetmask
 	document.getElementById("Wildcard").textContent = response.info.wildCardMask
 	document.getElementById("IP-Class").textContent = response.info.ipClass
+	document.getElementById("IP-Type").textContent = response.info.ipType
+	document.getElementById("blocks-table").innerHTML = response.info.blocks
+		.map((item, index) => {
+			let [start, end] = item.split("-")
+			return `<tr><td>${index + 1}</td><td>${start}</td><td>${end}</td></tr>`
+		})
+		.join("")
 }
 
 const onSubmit = () => {

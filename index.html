@@ -19,7 +19,7 @@
 			</div> -->
 			<div class="window-content">
 				<div class="pane-group">
-					<div class="pane">
+					<div class="sidebar">
 						<div class="padded-more">
 							<section class="section">
 								<form id="form">
@@ -33,6 +33,7 @@
 											max="255"
 											min="0"
 											placeholder="192"
+											required
 										/>
 										<span>.</span>
 										<input
@@ -42,6 +43,7 @@
 											max="255"
 											min="0"
 											placeholder="192"
+											required
 										/>
 										<span>.</span>
 										<input
@@ -51,6 +53,7 @@
 											max="255"
 											min="0"
 											placeholder="192"
+											required
 										/>
 										<span>.</span>
 										<input
@@ -60,6 +63,7 @@
 											max="255"
 											min="0"
 											placeholder="192"
+											required
 										/>
 									</div>
 									<div class="form-group">
@@ -72,6 +76,7 @@
 											max="31"
 											min="0"
 											placeholder="8"
+											required
 										/>
 										<br />
 									</div>
@@ -86,6 +91,8 @@
 								<div class="spinner"></div>
 							</div>
 							<div class="info">
+								<!-- <section> -->
+								<h3>Details</h3>
 								<table class="table-striped">
 									<thead>
 										<tr>
@@ -115,6 +122,10 @@
 											<td id="Total-Hosts">64</td>
 										</tr>
 										<tr>
+											<td>Usable Number of Hosts</td>
+											<td id="Usable-Hosts">64</td>
+										</tr>
+										<tr>
 											<td>Subnet Mask</td>
 											<td id="Subnet-Mask">255.255.255.0</td>
 										</tr>
@@ -132,6 +143,20 @@
 										</tr>
 									</tbody>
 								</table>
+								<!-- </section> -->
+								<section>
+									<h3>Similar blocks</h3>
+									<table class="table-striped">
+										<thead>
+											<tr>
+												<th>S. No.</th>
+												<th>Start</th>
+												<th>End</th>
+											</tr>
+										</thead>
+										<tbody id="blocks-table"></tbody>
+									</table>
+								</section>
 							</div>
 						</div>
 					</div>
